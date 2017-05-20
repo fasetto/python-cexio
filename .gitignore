@@ -1,2 +1,6 @@
 
+# Pylint config file.
 .pypirc
+
+# Setuptools distribution folder.
+/dist/
