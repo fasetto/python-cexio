@@ -3,7 +3,7 @@
 from distutils.core import setup
 
 setup(
-    name='python-cexio',
+    name='cexio',
     version='0.1.2',
     packages=['cexio'],
     description='Python wrapper for CEX.IO',
