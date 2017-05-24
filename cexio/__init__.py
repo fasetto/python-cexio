@@ -32,10 +32,9 @@ class Api:
     @property
     def __nonce(self):
         return str(int(time.time() * 1000))
-
-    @property
-    def __signature(self):
-        message = self.__nonce + self.username + self.api_key
+    
+    def __signature(self, nonce):
+        message = nonce + self.username + self.api_key
         signature = hmac.new(bytearray(self.api_secret.encode('utf-8')), message.encode('utf-8'), digestmod = hashlib.sha256).hexdigest().upper()
         return signature
 
@@ -54,10 +53,11 @@ class Api:
             param = {}
 
         if command not in PUBLIC_COMMANDS:
+            nonce = self.__nonce
             param.update({
                 'key': self.api_key,
-                'signature': self.__signature,
-                'nonce': self.__nonce
+                'signature': self.__signature(nonce),
+                'nonce': nonce
             })
         
         request_url = (BASE_URL % command) + action
