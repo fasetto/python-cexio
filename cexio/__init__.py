@@ -168,6 +168,24 @@ class Api:
     def trade_history(self, since=1, market='BTC/USD'):
         return self.api_call('trade_history', None, market + '/?since=' + str(since))
 
-    def __post(self, url, param):
+    def __post(self, url, param): #this line changed added proxies, add after param to use socks procy (, proxies="socks5://175.155.68.86:38801")
         result = requests.post(url, data=param, headers={ 'User-agent': 'bot-cex.io-' + self.username }).json()
         return result
+
+    def archived_orders(self, pair='BTC/USD', dfrom=int(time.time()) - 84600, dto=int(time.time()), limit='100',
+                        status=None, lastTxDateFrom=None, lastTxDateTo=None): # added archived_orders from the latest api code from cex.io
+        params = {
+            "dateFrom": dfrom,
+            "dateTo": dto,
+            "limit": limit
+        }
+
+        if lastTxDateFrom is not None:
+            params["lastTxDateFrom"] = lastTxDateFrom
+
+        if lastTxDateTo is not None:
+            params["lastTxDateTo"] = lastTxDateTo
+
+        if status is not None:
+            params["status"] = status
+        return self.api_call('archived_orders', params, pair)
