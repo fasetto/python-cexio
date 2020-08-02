@@ -2,6 +2,8 @@
 Python wrapper for CEX.IO
 
 # Installation
+![Upload Python Package](https://github.com/fasetto/python-cexio/workflows/Upload%20Python%20Package/badge.svg)
+
 via pip:
 
 `pip install cexio`
