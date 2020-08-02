@@ -171,3 +171,21 @@ class Api:
     def __post(self, url, param):
         result = requests.post(url, data=param, headers={ 'User-agent': 'bot-cex.io-' + self.username }).json()
         return result
+
+    def archived_orders(self, pair='BTC/USD', dfrom=int(time.time()) - 84600, dto=int(time.time()), limit='100',
+                        status=None, lastTxDateFrom=None, lastTxDateTo=None):
+        params = {
+            "dateFrom": dfrom,
+            "dateTo": dto,
+            "limit": limit
+        }
+
+        if lastTxDateFrom is not None:
+            params["lastTxDateFrom"] = lastTxDateFrom
+
+        if lastTxDateTo is not None:
+            params["lastTxDateTo"] = lastTxDateTo
+
+        if status is not None:
+            params["status"] = status
+        return self.api_call('archived_orders', params, pair)
