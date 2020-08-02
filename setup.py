@@ -18,7 +18,5 @@ setup(
         'License :: OSI Approved :: MIT License',
         'Development Status :: 3 - Alpha',
         'Topic :: Office/Business :: Financial',
-    ],
-    include_package_data=True,
-    zip_safe=False
+    ]
 )
