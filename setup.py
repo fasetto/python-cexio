@@ -4,12 +4,12 @@ from distutils.core import setup
 
 setup(
     name='cexio',
-    version='0.1.4',
+    version='0.1.6',
     packages=['cexio'],
     description='Python wrapper for CEX.IO',
     url='https://github.com/fasetto/python-cexio',
-    author='SERKAN BIRCAN',
-    author_email='serkan@siniradam.net',
+    author='fasetto',
+    author_email='serkanbircan21@yandex.com',
     license='MIT',
     classifiers=[
         'Programming Language :: Python',
