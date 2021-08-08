@@ -4,7 +4,7 @@ from setuptools import setup
 
 setup(
     name='cexio',
-    version='0.1.7',
+    version='0.1.8',
     packages=['cexio'],
     description='Python wrapper for CEX.IO',
     url='https://github.com/fasetto/python-cexio',
