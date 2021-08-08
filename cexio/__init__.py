@@ -77,6 +77,9 @@ class Api:
         :rtype : dict
         """
         return self.api_call('ticker', None, market)
+   
+    def tickers_for_all_pairs_by_markets(self, markets="BTC/USD"):
+        return self.api_call('tickers', {}, 0, markets)
 
     @property
     def balance(self):
