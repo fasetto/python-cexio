@@ -79,7 +79,7 @@ class Api:
         return self.api_call('ticker', None, market)
    
     def tickers_for_all_pairs_by_markets(self, markets="BTC/USD"):
-        return self.api_call('tickers', {}, 0, markets)
+        return self.api_call('tickers', {}, markets)
 
     @property
     def balance(self):
